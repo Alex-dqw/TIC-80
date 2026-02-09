@@ -451,6 +451,13 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SDLGPU=On -DBUILD_PRO=On -DBUILD_WITH_ALL=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
           cmake --build . --parallel
 
+      - name: Deploy Pro Version
+        uses: actions/upload-artifact@v4
+        with:
+          name: "tic80-windows-pro"
+          path: |
+            build/bin/tic80.exe
+
   # === Android ===
   android:
     runs-on: ubuntu-latest
@@ -592,3 +599,4 @@ jobs:
           name: "tic80-html"
           path: |
             build/bin/*
+
